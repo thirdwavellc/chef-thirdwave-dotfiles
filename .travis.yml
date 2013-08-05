@@ -5,3 +5,8 @@ rvm:
   - 1.9.2
   - 1.9.3
   - 2.0.0
+notifications:
+  email:
+    recipients:
+      - adam.krone@thirdwavellc.com
+    on_success: always
