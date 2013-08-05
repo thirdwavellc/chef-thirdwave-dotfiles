@@ -1,4 +1,4 @@
-# thirdwave-dotfiles cookbook
+# Thirdwave Dotfiles [![Build Status](https://secure.travis-ci.org/thirdwavellc/chef-thirdwave-dotfiles.png)](http://travis-ci.org/thirdwavellc/chef-thirdwave-dotfiles)
 
 Installs common packages and settings for developer productivity. Currently targeted specifically toward vagrant machines.
 

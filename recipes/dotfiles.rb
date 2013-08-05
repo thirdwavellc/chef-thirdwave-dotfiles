@@ -17,56 +17,22 @@
 # limitations under the License.
 #
 
-template "/home/vagrant/.bashrc" do
-  source ".bashrc.erb"
-  owner "vagrant"
-  group "vagrant"
+templates = %w{.bashrc .bash_profile .bash_prompt .aliases .vimrc}
+
+templates.each do |template|
+  template "/home/vagrant/#{template}" do
+    source "#{template}.erb"
+    owner "vagrant"
+    group "vagrant"
+  end
 end
 
-template "/home/vagrant/.bash_profile" do
-  source ".bash_profile.erb"
-  owner "vagrant"
-  group "vagrant"
-end
+directories = %w{.vim .vim/backups .vim/swaps .vim/undodir}
 
-template "/home/vagrant/.bash_prompt" do
-  source ".bash_prompt.erb"
-  owner "vagrant"
-  group "vagrant"
-end
-
-template "/home/vagrant/.aliases" do
-  source ".aliases.erb"
-  owner "vagrant"
-  group "vagrant"
-end
-
-template "/home/vagrant/.vimrc" do
-  source ".vimrc.erb"
-  owner "vagrant"
-  group "vagrant"
-end
-
-directory "/home/vagrant/.vim" do
-  owner "vagrant"
-  group "vagrant"
-  action :create
-end
-
-directory "/home/vagrant/.vim/backups" do
-  owner "vagrant"
-  group "vagrant"
-  action :create
-end
-
-directory "/home/vagrant/.vim/swaps" do
-  owner "vagrant"
-  group "vagrant"
-  action :create
-end
-
-directory "/home/vagrant/.vim/undodir" do
-  owner "vagrant"
-  group "vagrant"
-  action :create
+directories.each do |directory|
+  directory "/home/vagrant/#{directory}" do
+    owner "vagrant"
+    group "vagrant"
+    action :create
+  end
 end
