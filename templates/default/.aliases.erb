@@ -41,20 +41,3 @@ alias week='date +%V'
 
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-
-<% if node['thirdwave-dotfiles']['aliases']['liferay'] %>
-# Liferay Shortcuts
-alias lrhome='cd <%= "#{node['liferay']['install_directory']}/liferay" %>'
-
-alias lrtail='sudo -u liferay tail -f <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/catalina.out'
-
-alias lrstart='sudo /etc/init.d/liferay start'
-
-alias lrstop='sudo /etc/init.d/liferay stop'
-
-alias lrclear='sudo rm <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/*'
-
-alias lrps='sudo ps aux | grep java'
-
-alias lrdeploy='sudo -u liferay cp /vagrant/dist/* <%= "#{node['liferay']['install_directory']}/liferay" %>/deploy/.'
-<% end %>

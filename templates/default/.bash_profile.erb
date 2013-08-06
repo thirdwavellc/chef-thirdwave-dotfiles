@@ -49,6 +49,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{path,bash_prompt,exports,functions,extra}; do
     [ -r "$file" ] && source "$file"
+done
+
+# Load aliases
+for file in `find ~/ -iname ".aliases*"`; do
+	[ -r "$file" ] && source "$file"
 done

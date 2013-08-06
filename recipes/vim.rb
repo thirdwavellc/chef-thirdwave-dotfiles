@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: thirdwave-dotfiles
-# Recipe:: default
+# Recipe:: vim
 #
 # Copyright (C) 2013 Thirdwave, LLC
 # 
@@ -17,18 +17,17 @@
 # limitations under the License.
 #
 
-include_recipe "thirdwave-dotfiles::packages"
+template "#{node['thirdwave_dotfiles']['user_home']}/.vimrc" do
+  source ".vimrc.erb"
+  action :create
+end
 
-templates = %w{.bash_profile .bashrc}
+directories = %w{.vim .vim/backups .vim/swaps .vim/undodir}
 
-templates.each do |current_template|
-  template "#{node['thirdwave_dotfiles']['user_home']}/#{current_template}" do
-    source "#{current_template}.erb"
+directories.each do |directory|
+  directory "#{node['thirdwave_dotfiles']['user_home']}/#{directory}" do
+    owner node['thirdwave_dotfiles']['user']
+    group node['thirdwave_dotfiles']['user']
     action :create
   end
 end
-
-include_recipe "thirdwave-dotfiles::aliases"
-include_recipe "thirdwave-dotfiles::prompt" if node['thirdwave_dotfiles']['prompt']
-include_recipe "thirdwave-dotfiles::vim" if node['thirdwave_dotfiles']['vim']
-include_recipe "thirdwave-dotfiles::zsh" if node['thirdwave_dotfiles']['zsh']

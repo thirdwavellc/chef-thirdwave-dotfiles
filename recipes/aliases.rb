@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: thirdwave-dotfiles
-# Recipe:: default
+# Recipe:: aliases
 #
 # Copyright (C) 2013 Thirdwave, LLC
 # 
@@ -17,18 +17,14 @@
 # limitations under the License.
 #
 
-include_recipe "thirdwave-dotfiles::packages"
+templates = [".aliases"]
 
-templates = %w{.bash_profile .bashrc}
+templates << ".aliases_liferay" if node['liferay']
 
-templates.each do |current_template|
-  template "#{node['thirdwave_dotfiles']['user_home']}/#{current_template}" do
-    source "#{current_template}.erb"
-    action :create
+templates.each do |template|
+  template "#{node['thirdwave_dotfiles']['user_home']}/#{template}" do
+    source "#{template}.erb"
+    owner node['thirdwave_dotfiles']['user']
+    group node['thirdwave_dotfiles']['user']
   end
 end
-
-include_recipe "thirdwave-dotfiles::aliases"
-include_recipe "thirdwave-dotfiles::prompt" if node['thirdwave_dotfiles']['prompt']
-include_recipe "thirdwave-dotfiles::vim" if node['thirdwave_dotfiles']['vim']
-include_recipe "thirdwave-dotfiles::zsh" if node['thirdwave_dotfiles']['zsh']

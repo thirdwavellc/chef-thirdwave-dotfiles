@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: thirdwave-dotfiles
-# Recipe:: dotfiles
+# Recipe:: prompt
 #
 # Copyright (C) 2013 Thirdwave, LLC
 # 
@@ -17,22 +17,8 @@
 # limitations under the License.
 #
 
-templates = %w{.bashrc .bash_profile .bash_prompt .aliases .vimrc}
-
-templates.each do |template|
-  template "/home/vagrant/#{template}" do
-    source "#{template}.erb"
-    owner "vagrant"
-    group "vagrant"
-  end
-end
-
-directories = %w{.vim .vim/backups .vim/swaps .vim/undodir}
-
-directories.each do |directory|
-  directory "/home/vagrant/#{directory}" do
-    owner "vagrant"
-    group "vagrant"
-    action :create
-  end
+template "/home/vagrant/.bash_prompt" do
+  source ".bash_prompt.erb"
+  owner "vagrant"
+  group "vagrant"
 end

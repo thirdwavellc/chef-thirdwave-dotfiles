@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+include_recipe "git"
 include_recipe "zsh"
 
 git "oh-my-zsh" do
@@ -31,6 +32,6 @@ execute "copy-zshrc" do
 end
 
 execute "set-zsh-default" do
-  command "chsh -s /usr/bin/zsh"
+  command "chsh -s /usr/bin/zsh vagrant"
   action :run
 end
