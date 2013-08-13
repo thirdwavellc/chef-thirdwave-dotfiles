@@ -23,3 +23,5 @@ default['thirdwave_dotfiles']['user_home'] = "/home/vagrant"
 default['thirdwave_dotfiles']['prompt'] = false
 default['thirdwave_dotfiles']['vim'] = false
 default['thirdwave_dotfiles']['zsh'] = false
+
+default ['thirdwave_dotfiles']['aliases'] = {}
