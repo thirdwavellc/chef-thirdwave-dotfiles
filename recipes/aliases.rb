@@ -20,6 +20,7 @@
 templates = [".aliases"]
 
 templates << ".aliases_liferay" if node['liferay']
+templates << ".aliases_sass" if node['thirdwave_dotfiles']['aliases']['sass']
 
 templates.each do |template|
   template "#{node['thirdwave_dotfiles']['user_home']}/#{template}" do
