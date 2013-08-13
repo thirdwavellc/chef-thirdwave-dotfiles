@@ -57,3 +57,7 @@ done
 for file in `find ~/ -iname ".aliases*"`; do
 	[ -r "$file" ] && source "$file"
 done
+
+<% if node['rvm'] %>
+source ~/.rvm/scripts/rvm
+<% end %>
