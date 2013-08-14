@@ -24,4 +24,4 @@ default['thirdwave_dotfiles']['prompt'] = false
 default['thirdwave_dotfiles']['vim'] = false
 default['thirdwave_dotfiles']['zsh'] = false
 
-default ['thirdwave_dotfiles']['aliases'] = {}
+default['thirdwave_dotfiles']['aliases'] = {}
