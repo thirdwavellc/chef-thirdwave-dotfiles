@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "thirdwave-dotfiles"
+		chef.add_recipe "thirdwave-dotfiles::tmux-sessions"
 
 		chef.json = {
 			:thirdwave_dotfiles => {
@@ -43,7 +44,7 @@ Vagrant.configure("2") do |config|
 				]
 			},
 			:tmux => {
-				:install_method => "package"
+				:install_method => "source"
 			}
 		}
   end
