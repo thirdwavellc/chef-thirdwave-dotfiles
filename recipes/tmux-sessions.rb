@@ -27,7 +27,7 @@ node['thirdwave_dotfiles']['tmux_sessions'].each do |session|
 
 		if i == 0
 			execute exec_name do
-				command "#{as_user} -c \"tmux new-session #{sess_name} #{win_name} -d #{win_cmd}\""
+				command "#{as_user} -c \"tmux new-session -A #{sess_name} #{win_name} -d #{win_cmd}\""
 				action :run
 			end
 		else
