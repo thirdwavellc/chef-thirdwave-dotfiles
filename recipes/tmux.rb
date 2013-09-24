@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: thirdwave-dotfiles
-# Recipe:: packages
+# Recipe:: tmux
 #
 # Copyright (C) 2013 Thirdwave, LLC
 # 
@@ -17,9 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "apt"
-include_recipe "mercurial"
-include_recipe "git"
-include_recipe "htop"
-include_recipe "vim"
-include_recipe "tmux"
+template "#{node['thirdwave_dotfiles']['user_home']}/.tmux.conf" do
+  source ".tmux.conf.erb"
+  action :create
+end

@@ -32,3 +32,8 @@ include_recipe "thirdwave-dotfiles::aliases"
 include_recipe "thirdwave-dotfiles::prompt" if node['thirdwave_dotfiles']['prompt']
 include_recipe "thirdwave-dotfiles::vim" if node['thirdwave_dotfiles']['vim']
 include_recipe "thirdwave-dotfiles::zsh" if node['thirdwave_dotfiles']['zsh']
+include_recipe "thirdwave-dotfiles::tmux" if node['thirdwave_dotfiles']['tmux']
+
+if node['thirdwave_dotfiles']['tmux_sessions']
+	include_recipe "thirdwave-dotfiles::tmux-sessions"
+end
