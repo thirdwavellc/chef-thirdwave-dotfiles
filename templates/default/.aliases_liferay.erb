@@ -1,7 +1,7 @@
 # Liferay Shortcuts
 alias lrhome='cd <%= "#{node['liferay']['install_directory']}/liferay" %>'
 
-alias lrtail='sudo <%= "#{node['liferay']['user']}" %> tail -f <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/catalina.out'
+alias lrtail='sudo -u <%= "#{node['liferay']['user']}" %> tail -f <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/catalina.out'
 
 alias lrstart='sudo /etc/init.d/liferay start'
 
