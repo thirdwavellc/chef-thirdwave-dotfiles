@@ -3,11 +3,11 @@ alias lrhome='cd <%= "#{node['liferay']['install_directory']}/liferay" %>'
 
 alias lrtail='sudo tail -f <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/catalina.out'
 
-alias lrstart='sudo /etc/init.d/liferay start'
+alias lrstartup='sudo /etc/init.d/liferay start'
 
-alias lrstop='sudo /etc/init.d/liferay stop'
+alias lrshutdown='sudo /etc/init.d/liferay stop'
 
-alias lrclear='sudo rm <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/*'
+alias lrclear='sudo rm <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/* && sudo rm <%= "#{node['liferay']['install_directory']}/liferay/tomcat/temp" %>/* && sudo rm <%= "#{node['liferay']['install_directory']}/liferay/tomcat/work" %>/* && '
 
 alias lrps='sudo ps aux | grep java'
 
