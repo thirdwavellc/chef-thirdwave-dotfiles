@@ -1,14 +1,17 @@
 # Liferay Shortcuts
 alias lrhome='cd <%= "#{node['liferay']['install_directory']}/liferay" %>'
 
-alias lrtail='sudo tail -f <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/catalina.out'
+alias lrtail='sudo tail -f <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/logs/catalina.out'
 
 alias lrstartup='sudo /etc/init.d/liferay start'
 
 alias lrshutdown='sudo /etc/init.d/liferay stop'
 
-alias lrclear='sudo rm <%= "#{node['liferay']['install_directory']}/liferay/tomcat/logs" %>/* && sudo rm <%= "#{node['liferay']['install_directory']}/liferay/tomcat/temp" %>/* && sudo rm <%= "#{node['liferay']['install_directory']}/liferay/tomcat/work" %>/* && '
+alias lrclear='sudo rm <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/logs/* && sudo rm <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/temp/* && sudo rm <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/work/* && '
 
 alias lrps='sudo ps aux | grep java'
 
 alias lrdeploy='sudo cp /vagrant/dist/* <%= "#{node['liferay']['install_directory']}/liferay" %>/deploy/. && sudo chown <%= "#{node['liferay']['user']}" %>:<%= "#{node['liferay']['group']}" %> <%= "#{node['liferay']['install_directory']}/liferay" %>/deploy/*'
+
+alias lrpurgext='sudo rm -rf <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/webapps/*-ext && sudo find <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/webapps -name "ext-*" | xargs sudo rm -rf'
+
