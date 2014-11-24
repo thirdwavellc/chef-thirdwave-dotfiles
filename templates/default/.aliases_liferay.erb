@@ -7,7 +7,7 @@ alias lrstartup='sudo /etc/init.d/liferay start'
 
 alias lrshutdown='sudo /etc/init.d/liferay stop'
 
-alias lrclear='sudo rm <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/logs/* && sudo rm <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/temp/* && sudo rm <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/work/* && '
+alias lrclear='sudo rm -rf <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/logs/* && sudo rm -rf <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/temp/* && sudo rm -rf <%= "#{node['liferay']['install_directory']}/liferay" %>/tomcat/work/* && '
 
 alias lrps='sudo ps aux | grep java'
 
